@@ -3,7 +3,6 @@ package com.example.petiteboard.domain;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
-import java.sql.Time;
 
 @Entity
 @Table(name = "board")

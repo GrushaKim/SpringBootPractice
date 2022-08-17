@@ -1,10 +1,8 @@
 package com.example.petiteboard.dto;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.example.petiteboard.domain.Board;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -19,16 +17,31 @@ public class BoardDto {
     private String content;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
-//
-//    public Board toEntity(){
-//        Board board = Board.builder()
-//                .id(id)
-//                .writer(writer)
-//                .title(title)
-//                .content(content)
-//                .build();
-//        return board;
-//    }
 
+    public Board toEntity(){
+        Board board = Board.builder()
+                .id(id)
+                .writer(writer)
+                .title(title)
+                .content(content)
+                .build();
+        return board;
+    }
 
+    @Builder
+    public BoardDto(
+            Long id,
+            String writer,
+            String title,
+            String content,
+            LocalDateTime createdTime,
+            LocalDateTime updatedTime
+    ) {
+        this.id = id;
+        this.writer = writer;
+        this.title = title;
+        this.content = content;
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
+    }
 }
